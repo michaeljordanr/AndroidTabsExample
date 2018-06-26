@@ -47,24 +47,17 @@ public class MainActivity extends AppCompatActivity {
         // Connect the ViewPager to our custom PagerAdapter. The PagerAdapter supplies the pages
         // (fragments) to the ViewPager, which the ViewPager needs to display.
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mViewPager.setOffscreenPageLimit(1);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
         // Connect the tabs with the ViewPager (the setupWithViewPager method does this for us in
         // both directions, i.e. when a new tab is selected, the ViewPager switches to this page,
         // and when the ViewPager switches to a new page, the corresponding tab is selected)
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(mViewPager);
-
-
     }
 
     public void setCurrentItem(int item, boolean smoothScroll) {
         mViewPager.setCurrentItem(item, smoothScroll);
-    }
-
-    public void backButton(int position){
-
     }
 
 
@@ -89,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return PAGE_TITLES[position];
         }
+
+
 
     }
 }
