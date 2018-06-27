@@ -19,6 +19,7 @@ import java.util.Objects;
 public class Page1Fragment extends BaseFragment implements FragmentInterface{
 
     MainActivity parent;
+    ImageView iv;
 
     public Page1Fragment() {
     }
@@ -30,8 +31,9 @@ public class Page1Fragment extends BaseFragment implements FragmentInterface{
 
 
         Button next = rootView.findViewById(R.id.bt1);
-        next.setOnClickListener(v -> parent.setCurrentItem(1, true));
+        next.setOnClickListener(v -> parent.setCurrentItem(Page2Fragment.class.getName(), false));
 
+        iv = parent.findViewById(R.id.ib_back_toolbar);
 
         return rootView;
     }
@@ -46,12 +48,12 @@ public class Page1Fragment extends BaseFragment implements FragmentInterface{
     public void viewDidAppear() {
         super.viewDidAppear();
         setToolbarTitle(tvToolbar, "Fragment 1");
+        iv.setOnClickListener(v -> parent.finish());
+        toolbar.setBackgroundColor(getResources().getColor(R.color.white));
     }
 
     @Override
     public void viewDidDisappear() {
         super.viewDidDisappear();
-        Toast.makeText(getContext(), "Frag 1 disappeared", Toast.LENGTH_SHORT).show();
-
     }
 }

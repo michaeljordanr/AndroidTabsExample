@@ -23,12 +23,7 @@ public class Page2Fragment extends BaseFragment {
         parent = (MainActivity) getActivity();
 
         Button next = rootView.findViewById(R.id.bt2);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setCurrentItem(2, false);
-            }
-        });
+        next.setOnClickListener(v -> parent.setCurrentItem(Page3Fragment.class.getName(), false));
 
         iv = parent.findViewById(R.id.ib_back_toolbar);
 
@@ -47,19 +42,11 @@ public class Page2Fragment extends BaseFragment {
     public void viewDidAppear() {
         super.viewDidAppear();
         setToolbarTitle(tvToolbar, "Fragment 2");
-        Toast.makeText(getContext(), "Frag 2 appeared", Toast.LENGTH_SHORT).show();
-
-        iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parent.setCurrentItem(0, false);
-            }
-        });
+        iv.setOnClickListener(v -> parent.setCurrentItem(Page1Fragment.class.getName(), false));
     }
 
     @Override
     public void viewDidDisappear() {
         super.viewDidDisappear();
-        Toast.makeText(getContext(), "Frag 2 disappeared", Toast.LENGTH_SHORT).show();
     }
 }

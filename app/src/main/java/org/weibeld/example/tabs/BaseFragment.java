@@ -1,6 +1,7 @@
 package org.weibeld.example.tabs;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import org.weibeld.example.R;
@@ -10,6 +11,7 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
     private boolean isVisible = false;
 
     TextView tvToolbar;
+    Toolbar toolbar;
 
     @Override
     public void onStart() {
@@ -37,6 +39,7 @@ public abstract class BaseFragment extends Fragment implements FragmentInterface
     }
 
     public void viewDidAppear() {
+        toolbar = getActivity().findViewById(R.id.toolbar);
         tvToolbar = getActivity().findViewById(R.id.tv_toolbar);
     }
 
